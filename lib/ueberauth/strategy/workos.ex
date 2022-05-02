@@ -3,7 +3,9 @@ defmodule Ueberauth.Strategy.WorkOS do
   WorkOS Strategy for Überauth.
   """
 
-  use Ueberauth.Strategy
+  # Disable Überauth's built in CSRF-protection as it prevents WorkOS's
+  # IdP-initiated flow from completing
+  use Ueberauth.Strategy, ignores_csrf_attack: true
 
   alias Ueberauth.Auth.Info
   alias Ueberauth.Auth.Credentials
