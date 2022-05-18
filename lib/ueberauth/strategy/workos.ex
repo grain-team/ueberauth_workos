@@ -142,7 +142,7 @@ defmodule Ueberauth.Strategy.WorkOS do
   defp get_state_cookie(conn) do
     conn
     |> Plug.Conn.fetch_session()
-    |> Map.get(:cookies)
+    |> Map.get(:req_cookies)
     |> Map.get(@state_param_cookie_name)
   end
 
